@@ -1,0 +1,55 @@
+%
+% Beamer Ulster Computing and Engineering Template
+% Inner Theme
+%
+% Colin Turner 2016
+% CC Attribution-ShareAlike 4.0 International License
+%
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+ \ifnum\thepage=1\relax%
+   \fill[ulsterlightorange,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+ %FIXME: Horrible hardcoding.
+  \node[inner sep=0pt] (title) at (6.5,5)
+    {\includegraphics[width=13 cm]{compengtitle.jpg}};
+ \fi
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \node[inner sep=0pt] (logo) at (1.5,1)
+     {\includegraphics[width=2 cm]{compenglogo-hires.jpg}};
+   \node[anchor=east, color=ulsterdarkorange] (tagline) at (\the\paperwidth,0.5) {\tagline};
+   \fi
+  \end{tikzpicture}
+}
+
+
+% Title page
+\defbeamertemplate*{title page}{ulster}[1][]
+{ 
+   \vskip3cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0.5cm,sep=4pt,#1]{title page header}
+      \usebeamerfont{title}\Huge\inserttitle\par%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=12cm,leftskip=0.5cm,sep=4pt,#1]{subtitle page header}
+      \usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{beamercolorbox}%
+
+    \begin{beamercolorbox}[wd=12cm,leftskip=0.5cm,sep=4pt,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=12cm,leftskip=0.5cm,sep=4pt,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+
+% Items
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\mode
+<all>
